@@ -40,5 +40,16 @@ func calculateBodyWeight(userWeight, userHeight float64) float64 {
 
 func outputResult(bodyWeightIndex float64) {
 	result := fmt.Sprintf("Ваш индекс массы тела: %.0f", bodyWeightIndex)
-	fmt.Print(result)
+
+	if bodyWeightIndex < 18.5 {
+		result += " - недостаточный вес"
+	} else if bodyWeightIndex >= 18.5 && bodyWeightIndex <= 24.9 {
+		result += " - нормальный вес"
+	} else if bodyWeightIndex >= 25 && bodyWeightIndex <= 29.9 {
+		result += " - избыточный вес"
+	} else if bodyWeightIndex >= 30 {
+		result += " - ожирение"
+	}
+
+	fmt.Println(result)
 }
